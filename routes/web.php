@@ -13,6 +13,9 @@ use App\Http\Controllers\EventController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/', function(){
+    return view('welcome');
+});
 Route::get('/events', [EventController::class, 'index'])->name('home');
-Route::post('events/create', [UserController::class, 'store'])->name('store');
+Route::get('/events/create', [EventController::class, 'create'])->name('create');
+Route::post('/events', [EventController::class, 'store'])->name('store');
