@@ -7,31 +7,37 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $events = Event::all();
-        return view('events.index', compact('events')); //The compact function creates an associative array from the variables you pass to it. Use Assoc tble if u wanna rename vars
+        return view('events.index', compact('events')); // Pass data to the view
     }
-    //Store new events - Just for server side
-    public function store(Request $req){
-        //Validate requested data
+
+    public function create()
+    {
+        return view('events.create'); // Return the view for creating an event
+    }
+
+    // Store new events
+    public function store(Request $req)
+    {
+        // Validate the requested data
         $req->validate([
-            'title'=>'required|string|max:255',
-            'description'=>'required|string|max:255',
-            'start_time'=>'required|datetime',
-            'end_time'=>'required|datetime'
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'start-time' => 'required|date',
+            'end-time' => 'required|date|after:start-time', // Rule to ensure end time is after start time
         ]);
 
-
-        //Create new event
+        // Create new event
         $event = new Event();
-        $event -> title = $req->input('title');
-        $event -> description = $req->input('description');
-        $event -> start_time = $req->input('start_time');
-        $event -> end_time = $req->input('end_time');
+        $event->title = $req->input('title');
+        $event->description = $req->input('description');
+        $event->start_time = $req->input('start-time'); // Assign start time
+        $event->end_time = $req->input('end-time'); // Assign end time
 
         $event->save();
 
-        return response()->json(['message' => 'Column created successfully', 'event'=>$event], 200);
+        return redirect('/events')->with('msg', 'Event created successfully');
     }
 }
-
