@@ -12,5 +12,6 @@
         {{ $event->title }} - {{ $event->start_time}}
         @endforeach
     </div>
+    <p>{{ session('msg') }}</p>
 </body>
 </html>
