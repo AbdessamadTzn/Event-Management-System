@@ -4,4 +4,4 @@ A web application built with Laravel that allows users to create and manage even
 
 ## Modeling
 
-![Class Diagram](docs/EMS_ClassDiagram.png)
+![Class Diagram](docs/EMS.png)
