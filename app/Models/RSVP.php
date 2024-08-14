@@ -15,6 +15,6 @@ class RSVP extends Model
      */
     public function events(): BelongsTo
     {
-        return $this->belongsTo(Event::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(Event::class);
     }
 }
