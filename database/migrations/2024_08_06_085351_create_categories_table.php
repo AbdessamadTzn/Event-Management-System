@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
 
             //Belongs to Category
-             $table->foreignId('event_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+             $table->foreignId('event_id')->constrained('events')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

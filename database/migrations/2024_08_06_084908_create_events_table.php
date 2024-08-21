@@ -19,7 +19,7 @@ return new class extends Migration
             $table->datetime('end_time');
 
             //Belongs to User
-             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });
