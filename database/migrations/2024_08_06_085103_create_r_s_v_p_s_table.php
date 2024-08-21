@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('status');
 
             //Belongs to User
-             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
 
             //Belongs to Event
-             $table->foreignId('event_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+             $table->foreignId('event_id')->constrained('events')->onUpdate('cascade')->onDelete('cascade');
 
 
             $table->timestamps();
