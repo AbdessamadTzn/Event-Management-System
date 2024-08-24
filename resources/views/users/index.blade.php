@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Events</title>
+    <title>Users</title>
 </head>
 <body>
+    Hi
     <div>
-        @foreach($events as $event)
-        {{ $event->title }} - {{ $event->start_time}}
+        @foreach($users as $user)
+        {{ $user->name }}
         @endforeach
     </div>
-    <p>{{ session('msg') }}</p>
 </body>
 </html>
