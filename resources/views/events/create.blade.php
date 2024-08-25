@@ -20,7 +20,7 @@
             <input type="datetime-local" name="start-time" id="start-time">
             <br>
             <label for="end-time">End Time</label>
-            <input type="datetime-local" name="end-time" id="start-time">
+            <input type="datetime-local" name="end-time" id="end-time">
             <br>
             <input type="submit" value="Create">
         </form>

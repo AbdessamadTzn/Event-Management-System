@@ -9,6 +9,8 @@
 <body>
     <div>
         @foreach($events as $event)
+        {{ $event->id }}
+        <br>
         {{ $event->title }} - {{ $event->start_time}}
         @endforeach
     </div>
