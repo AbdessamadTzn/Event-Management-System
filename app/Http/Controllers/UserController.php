@@ -11,6 +11,10 @@ class UserController extends Controller
         $users = User::all();
         return view('users.index', compact('users'));
     }
+    public function show($id){
+        $user = User::findOrFail($id);
+        return view('users.show', compact('user'));
+    }
 
     public function create(){
         return view('users.create');
@@ -31,6 +35,12 @@ class UserController extends Controller
 
         $user->save();
 
+        return redirect('/users');
+    }
+
+    public function destroy($id){
+        $user = User::findOrFail($id);
+        $user->delete();
         return redirect('/users');
     }
 }
