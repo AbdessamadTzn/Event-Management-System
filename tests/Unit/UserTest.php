@@ -23,4 +23,15 @@ class UserTest extends TestCase
                 'id', 'name', 'email', 'email_verified_at', 'password'
             ]), 1);
     }
+    //** @test */
+    public function user_has_many_events(){
+        $user = factory(User::class) -> create();
+        $event = factory(Event::class) -> create(['user_id' => $user->id]);
+
+        $user->load('events');
+
+    // Assert that the user’s events collection contains the created event
+        $this->assertTrue($user->events->contains($event));
+
+    }
 }

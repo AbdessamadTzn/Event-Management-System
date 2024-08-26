@@ -33,6 +33,6 @@ class Event extends Model
      */
     public function categories(): HasMany
     {
-        return $this->hasMany(Category::class, 'foreign_key', 'local_key');
+        return $this->hasMany(Category::class);
     }
 }
