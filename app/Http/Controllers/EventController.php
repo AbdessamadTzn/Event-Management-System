@@ -35,6 +35,7 @@ class EventController extends Controller
         $event->description = $req->input('description');
         $event->start_time = $req->input('start-time'); // Assign start time
         $event->end_time = $req->input('end-time'); // Assign end time
+        $event->user_id = 1; //for testing
 
         $event->save();
 

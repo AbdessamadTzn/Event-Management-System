@@ -7,10 +7,9 @@
     <title>Users</title>
 </head>
 <body>
-    Hi
     <div>
         @foreach($users as $user)
-        {{ $user->name }}
+        {{ $user->name }} <br>
         @endforeach
     </div>
 </body>
