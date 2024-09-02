@@ -38,6 +38,11 @@ class UserController extends Controller
         return redirect('/users');
     }
 
+    public function update($id){
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
+    }
+
     public function destroy($id){
         $user = User::findOrFail($id);
         $user->delete();
