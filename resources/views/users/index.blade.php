@@ -8,15 +8,14 @@
 </head>
 <body>
     <div>
-        @foreach($users as $user)
+        @forelse ($users as $user)
+        {{ $user->id }} <br>
         {{ $user->name }} <br>
-        @endforeach
+        @empty
+        <p>No users<p>
+        @endforelse
     </div>
     <br>
-    <form action="/users/{{ $user->id }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button>Delete</button>
-    </form>
+
 </body>
 </html>
